@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeeperLibrary", "KeeperLibrary\KeeperLibrary.csproj", "{6CF404EE-C95E-48EE-87E9-D6853485C0EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CF404EE-C95E-48EE-87E9-D6853485C0EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF404EE-C95E-48EE-87E9-D6853485C0EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF404EE-C95E-48EE-87E9-D6853485C0EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF404EE-C95E-48EE-87E9-D6853485C0EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81ED625C-4B4B-48CF-86F3-720C684F13A3}
+	EndGlobalSection
+EndGlobal
