@@ -6,7 +6,7 @@ namespace KeeperLibrary.Models
 {
     public class Client
     {
-        public int Id { get; set; }
+        public int Guid { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
