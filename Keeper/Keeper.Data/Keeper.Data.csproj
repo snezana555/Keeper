@@ -6,15 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\KeeperLibrary\KeeperLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
