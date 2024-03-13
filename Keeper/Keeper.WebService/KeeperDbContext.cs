@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.Entity;
 using KeeperLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Keeper.Data
 {
