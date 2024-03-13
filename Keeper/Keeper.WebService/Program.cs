@@ -1,4 +1,3 @@
-using Keeper.Data;
 using Keeper.WebService;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -9,7 +8,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-//string connection = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<Keeper.Data.KeeperDbContext>(options => options.UseSqlServer(connection));
+builder.Services.AddDbContext<>(options => options.UseSqlServer(ConfigurationBinder.GetConnectionString("Container")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
 await builder.Build().RunAsync();
