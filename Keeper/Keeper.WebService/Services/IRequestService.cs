@@ -1,18 +1,13 @@
 ﻿using KeeperLibrary.Models;
+using Keeper.WebService.Dto;
 
 namespace Keeper.WebService.Services
 {
     public interface IRequestService
     {
-        Task Add(DateTime dateStart,
-                      DateTime dateEnd,
-                      string targetVisit,
-                      string additionalFiles,
-                      Employee employee,
-                      List<Visitor> visitors,
-                      string status,
-                      string statusDescription);
+        Task Add(RequestCreationDto dto);
         Task Remove(int id);
         Task Edit(Request request);
+        Task ChangeStatus(int id);
     }
 }

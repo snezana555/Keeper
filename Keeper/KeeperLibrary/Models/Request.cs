@@ -11,7 +11,7 @@ namespace KeeperLibrary.Models
         public DateTime DateEnd { get; set; }
         public string TargetVisit { get; set; }
         public string AdditionalFiles { get; set; }
-        public Employee Employee { get; set; }
+        public Guid EmployeeId { get; set; }
         public List<Visitor> Visitors { get; set; }
         public string? StatusDescription { get; set; }
         public enum Status

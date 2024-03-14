@@ -1,4 +1,6 @@
-﻿using Keeper.Data;
+﻿using FluentValidation;
+using Keeper.Data;
+using Keeper.WebService.Dto;
 using KeeperLibrary.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,33 +10,36 @@ namespace Keeper.WebService.Services
     public class RequestService : IRequestService
     {
         private readonly KeeperDbContext _db;
+        private readonly IValidator<RequestCreationDto> _validator;
 
-        public RequestService(KeeperDbContext db)
+        public RequestService(KeeperDbContext db, IValidator<RequestCreationDto> validator)
         {
             _db = db;
+            _validator = validator;
         }
 
-        public async Task Add(DateTime dateStart,
-                              DateTime dateEnd,
-                              string targetVisit,
-                              string additionalFiles,
-                              Employee employee,
-                              List<Visitor> visitors,
-                              string status,
-                              string statusDescription)
+        public async Task Add(RequestCreationDto dto)
         {
             // TODO: добавление валидации //
+            var validationResult = await _validator.ValidateAsync(dto);
 
-            Request request = new Request();
-            request.DateStart = dateStart;
-            request.DateEnd = dateEnd;
-            request.TargetVisit = targetVisit;
-            request.AdditionalFiles = additionalFiles;
-            request.Employee = employee;
-            request.Visitors = visitors;
-            request.StatusDescription = statusDescription;
-            //request.Status = Status; //
-            // TODO: status //
+            if(validationResult.IsValid) 
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+
+            Request request = new Request()
+            {
+                DateStart = dto.DateStart,
+                DateEnd = dto.DateEnd,
+                TargetVisit = dto.TargetVisit,
+                AdditionalFiles = dto.AdditionalFiles,
+                EmployeeId = dto.EmployeeId,
+                Visitors = _db.Visitors.Where(v => dto.VisitorsIds.Contains(v.Id)).ToList(),
+                StatusDescription = dto.StatusDescription,
+                //Status = dto.Status
+            };
+
             _db.Requests.Add(request);
             await _db.SaveChangesAsync();
         }
@@ -50,6 +55,11 @@ namespace Keeper.WebService.Services
         {
             _db.Entry(request).State = EntityState.Modified;
             await _db.SaveChangesAsync();
+        }
+
+        public async Task ChangeStatus(int id)
+        {
+
         }
     }
 }
