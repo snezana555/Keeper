@@ -37,7 +37,6 @@ namespace Keeper.WebService.Services
                 EmployeeId = dto.EmployeeId,
                 Visitors = _db.Visitors.Where(v => dto.VisitorsIds.Contains(v.Id)).ToList(),
                 StatusDescription = dto.StatusDescription,
-                //Status = dto.Status
             };
 
             _db.Requests.Add(request);
@@ -57,8 +56,13 @@ namespace Keeper.WebService.Services
             await _db.SaveChangesAsync();
         }
 
-        public async Task ChangeStatus(int id)
+        public async Task ChangeStatus(int id, StatusChangeDto sData)
         {
+            var request = _db.Requests.FindAsync(id);
+            _db.Entry(request).State = EntityState.Modified;
+            request.StatusDescription = sData.StatusDescription;
+            // ToDo //
+            await _db.SaveChangesAsync();
 
         }
     }

@@ -9,6 +9,7 @@
         public Guid EmployeeId { get; set; }
         public List<Guid> VisitorsIds { get; set; } = new List<Guid>();
         public string? StatusDescription { get; set; }
-        // status
+
+
     }
 }

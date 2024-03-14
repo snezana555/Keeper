@@ -6,6 +6,7 @@ namespace Keeper.WebService.Dto
     public class VisitorCreationDto
     {
         public string Surname;
+        public string Name;
         public string? Patronymic;
         public string? Phone;
         public string Email;

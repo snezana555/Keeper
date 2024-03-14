@@ -31,6 +31,7 @@ namespace Keeper.WebService.Services
             Visitor visitor = new Visitor()
             {
                 Surname = dto.Surname,
+                Name = dto.Name,
                 Patronymic = dto.Patronymic,
                 Phone = dto.Phone,
                 Email = dto.Email,
