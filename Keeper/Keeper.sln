@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeeperLibrary", "KeeperLibrary\KeeperLibrary.csproj", "{6CF404EE-C95E-48EE-87E9-D6853485C0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.WebService", "Keeper.WebService\Keeper.WebService.csproj", "{15E60187-0E48-4B35-A822-A6366BA483EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keeper.WebService", "Keeper.WebService\Keeper.WebService.csproj", "{15E60187-0E48-4B35-A822-A6366BA483EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.Test", "Keeper.Test\Keeper.Test.csproj", "{580B8498-443D-43BC-A9B6-03BC5BDFBCC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keeper.Test", "Keeper.Test\Keeper.Test.csproj", "{580B8498-443D-43BC-A9B6-03BC5BDFBCC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

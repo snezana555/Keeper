@@ -1,0 +1,87 @@
+﻿@inject IVisitorService VisitorService
+
+
+<form >
+    <p class="form-visitor__title">Информация о посетителе</p>
+    <div class="form-visitor__elem">
+        <p>Фамилия:</p>
+        <input DisplayName="Surname" @bind="@CreationDto.Surname" />
+    </div>
+    <div class="form-visitor__elem">
+        <p>Имя:</p>
+        <input DisplayName="Name" @bind="@CreationDto.Name" />
+    </div>
+    <div class="form-visitor__elem">
+        <p>Отчество:</p>
+        <input DisplayName="Patronymic" @bind="@CreationDto.Patronymic" />
+    </div>
+    <div class="form-visitor__elem">
+        <p>Телефон:</p>
+        <input DisplayName="Phone" @bind="@CreationDto.Phone" type="phone"/>
+    </div>
+    <div class="form-visitor__elem">
+        <p>E-mail:</p>
+        <input DisplayName="Email" @bind="@CreationDto.Email" type="email" />
+    </div>
+    <div class="form-visitor__elem">
+        <p>Организация:</p>
+        <input DisplayName="Company" @bind="@CreationDto.Company" />
+    </div>
+    <div class="form-visitor__elem">
+        <p>Примечание:</p>
+        <input DisplayName="Remark" @bind="@CreationDto.Remark" />
+    </div>
+    <div class="form-visitor__elem">
+        <p>Дата рождения:</p>
+        <input DisplayName="DateBoth" @bind="@CreationDto.DateBoth" type="date"/>
+    </div>
+    <div class="form-visitor__elem">
+        <p>Серия:</p>
+        <input DisplayName="Series" @bind="@CreationDto.PassportData.Series" type="number"/>
+        @*To do: PassportData*@
+    </div>
+    <div class="form-visitor__elem">
+        <p>Номер:</p>
+        <input DisplayName="Number" @bind="@CreationDto.PassportData.Number" type="number"/>
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+        Добавить посетителя
+    </button>
+</form>
+
+<div class="visitoslist">
+    <p class="visitoslist__title">Список посетителей</p>
+    <div>
+        <p>№</p>
+        <p>ФИО</p>
+        <p>Контакты</p>
+        <p>Фотография</p>
+    </div>
+    @if (Visitors != null){
+        @foreach (var vis in Visitors)
+        {
+            <div>
+                <p>vis.Id</p>
+                <p><span>vis.Surname </span><span>vis.Name </span><span>vis.Patronymic</span></p>
+                <p><span>vis.Phone </span><span>vis.Email </span></p>
+                <input type="file" value="Загрузить" /> @*To do*@
+            </div>
+        }
+    }
+
+</div>
+
+@code {
+
+    public VisitorCreationDto? CreationDto { get; set; } = new VisitorCreationDto();
+    public List<ElementListVisitorDto>? Visitors { get; set; }
+
+
+    private void OnPost()
+    {
+        VisitorService.Add(CreationDto);
+        //To do: отправка идентификаторов пользователей //
+    }
+
+}

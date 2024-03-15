@@ -8,6 +8,6 @@ namespace Keeper.WebService.Services
         Task Add(RequestCreationDto dto);
         Task Remove(int id); 
         Task Edit(Request request);
-        Task ChangeStatus(int id);
+        Task ChangeStatus(int id, StatusChangeDto sData);
     }
 }

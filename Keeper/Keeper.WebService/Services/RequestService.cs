@@ -60,7 +60,7 @@ namespace Keeper.WebService.Services
         {
             var request = _db.Requests.FindAsync(id);
             _db.Entry(request).State = EntityState.Modified;
-            request.StatusDescription = sData.StatusDescription;
+            //request.StatusDescription = sData.StatusDescription;
             // ToDo //
             await _db.SaveChangesAsync();
 
