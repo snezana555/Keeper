@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using AutoMapper.QueryableExtensions;
+using FluentValidation;
 using Keeper.Data;
 using Keeper.WebService.Dto;
 using KeeperLibrary.Models;
@@ -64,6 +65,41 @@ namespace Keeper.WebService.Services
             // ToDo //
             await _db.SaveChangesAsync();
 
+        }
+
+        public async Task<List<Request>> GetAllRequests()
+        {
+              List<Request> requests = _db.Requests.ToList();
+              return requests;
+        }
+
+        public async Task<Request?> GetItem(int id)
+        {
+            return _db.Requests.Find(id);
+        }
+
+        public bool isRequestClient(string email, Guid idRequest)
+        {
+            Request req = _db.Requests.Find(idRequest);
+            foreach(var vis in req.Visitors)
+            {
+                if (vis.Email == email)
+                    return true;
+            }
+            return false;
+        }
+
+        public async Task<List<Request>> GetRequestsUser(string email)
+        {
+            List<Request> requests = null;
+            foreach(var req in _db.Requests)
+            {
+                if(isRequestClient(email, req.Id))
+                {
+                    requests.Add(req);
+                }
+            }
+            return requests;
         }
     }
 }

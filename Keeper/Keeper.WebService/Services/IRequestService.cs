@@ -9,5 +9,7 @@ namespace Keeper.WebService.Services
         Task Remove(int id); 
         Task Edit(Request request);
         Task ChangeStatus(int id, StatusChangeDto sData);
+        Task<List<Request>> GetRequestsUser(string email);
+        Task<Request?> GetItem(int id);
     }
 }
