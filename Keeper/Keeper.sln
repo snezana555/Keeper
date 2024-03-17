@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keeper.WebService", "Keeper
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keeper.Test", "Keeper.Test\Keeper.Test.csproj", "{580B8498-443D-43BC-A9B6-03BC5BDFBCC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeper.Api", "Keeper.Api\Keeper.Api.csproj", "{C65299E8-895E-40C2-82D5-696F530141F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Keeper.Api", "Keeper.Api\Keeper.Api.csproj", "{C65299E8-895E-40C2-82D5-696F530141F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

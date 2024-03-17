@@ -1,4 +1,5 @@
-﻿namespace Keeper.WebService.Dto
+﻿using KeeperLibrary.Models;
+namespace Keeper.WebService.Dto
 {
     public class StatusChangeDto
     {

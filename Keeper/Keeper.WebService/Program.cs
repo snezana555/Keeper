@@ -20,7 +20,9 @@ builder.Services.AddScoped<IValidator<VisitorCreationDto>, VisitorValidator>();
 builder.Services.AddScoped<IValidator<RequestCreationDto>, RequestCreationDtoValidator>();
 builder.Services.AddScoped<IVisitorService, VisitorService>();
 builder.Services.AddScoped<IRequestService, RequestService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
-builder.Services.AddDbContext<KeeperDbContext>(options => options.UseSqlServer("Host=localhost;Database=DefaultConnection;Username=admin;Password=admin"));
+builder.Services.AddDbContext<KeeperDbContext>(options => options.UseSqlServer("Host=localhost;Database=KeeperDb;Username=admin;Password=admin"));
 ////
 await builder.Build().RunAsync();

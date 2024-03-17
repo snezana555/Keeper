@@ -57,17 +57,19 @@ namespace Keeper.WebService.Services
             await _db.SaveChangesAsync();
         }
 
-        public async Task ChangeStatus(int id, StatusChangeDto sData)
+        public async Task<bool> ChangeStatus(int id, StatusChangeDto sData)
         {
-            var request = _db.Requests.FindAsync(id);
-            _db.Entry(request).State = EntityState.Modified;
-            //request.StatusDescription = sData.StatusDescription;
-            // ToDo //
-            await _db.SaveChangesAsync();
+            Request request = await _db.Requests.FindAsync(id);
+            if (request == null)
+                return false;
+            request.StatusDescription = sData.StatusDescription;
 
+
+            await _db.SaveChangesAsync();
+            return true;
         }
 
-        public async Task<List<Request>> GetAllRequests()
+        public async Task<List<Request>> GetRequests()
         {
               List<Request> requests = _db.Requests.ToList();
               return requests;
@@ -89,7 +91,7 @@ namespace Keeper.WebService.Services
             return false;
         }
 
-        public async Task<List<Request>> GetRequestsUser(string email)
+        public async Task<List<Request>> GetRequestsByClientEmail(string email)
         {
             List<Request> requests = null;
             foreach(var req in _db.Requests)

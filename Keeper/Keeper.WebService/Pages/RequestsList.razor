@@ -1,0 +1,20 @@
+﻿@page "/requests-list/{email}"
+@inject IRequestService RequestService
+
+@if(requests != null)
+{
+    <h3>Список заявок</h3>
+
+}
+
+
+@code {
+    [Parameter]
+    public string Email { get; set; }
+    public List<Request> requests;
+
+    protected override async Task OnInitializedAsync()
+    {
+        requests = await RequestService.GetRequestsByClientEmail(Email);
+    }
+}

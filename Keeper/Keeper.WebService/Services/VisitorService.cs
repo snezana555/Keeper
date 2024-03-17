@@ -47,17 +47,52 @@ namespace Keeper.WebService.Services
             return visitor.Id;
         }
 
-        public async Task Remove(int id)
+        public async Task Remove(Guid id)
         {
             var visitor = _db.Visitors.FindAsync(id);
             _db.Remove(visitor);
             await _db.SaveChangesAsync();
         }
 
-        public async Task Edit(Visitor visitor)
+        public async Task Edit(Guid id, VisitorCreationDto dto)
         {
+            Visitor visitor = await _db.Visitors.FindAsync(id);
+
+            var validationResult = await _validator.ValidateAsync(dto);
+
+            if (validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+
+            if (visitor == null)
+                return;
+
+            visitor.Surname = dto.Surname;
+            visitor.Name = dto.Name;
+            visitor.Patronymic = dto.Patronymic;
+            visitor.Phone = dto.Phone;
+            visitor.Email = dto.Email;
+            visitor.Remark = dto.Remark;
+            visitor.Company = dto.Company;
+            visitor.DateBoth = dto.DateBoth;
+            visitor.PassportData = dto.PassportData;
+            visitor.Image = dto.Image;
+ 
+
             _db.Entry(visitor).State = EntityState.Modified;
             await _db.SaveChangesAsync();
         }
+
+        public async Task<Visitor> GetVisitorById(Guid id)
+        {
+            return await _db.Visitors.FindAsync(id);
+        }
+
+        public async Task<List<Visitor>> GetVisitors()
+        {
+            return await _db.Visitors.ToListAsync();
+        }
+
     }
 }

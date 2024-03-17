@@ -10,6 +10,7 @@ using Keeper.WebService.Services;
 using Keeper.WebService.Validators;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
+using KeeperLibrary.Models;
 namespace Keeper.Test
 {
 
