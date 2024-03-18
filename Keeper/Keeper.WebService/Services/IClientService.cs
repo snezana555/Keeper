@@ -8,7 +8,7 @@ namespace Keeper.WebService.Services
         Task<Client> GetClientById(Guid id);
 
         Task<List<Client>> GetClients();
-        Task Add(ClientCreationDto dto);
+        Task<Guid> Add(ClientCreationDto dto);
 
         Task Edit(Guid id, ClientCreationDto dto);
 

@@ -9,7 +9,7 @@ namespace Keeper.WebService.Services
 
         Task<List<Employee>> GetEmployees();
 
-        Task Add(EmployeeCreationDto dto);
+        Task<Guid> Add(EmployeeCreationDto dto);
 
         Task Remove(Guid id);
         Task Edit(Guid id, EmployeeCreationDto dto);

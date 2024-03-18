@@ -24,7 +24,7 @@ namespace Keeper.WebService.Services
             return await _db.Clients.ToListAsync();
         }
 
-        public async Task Add(ClientCreationDto dto)
+        public async Task<Guid> Add(ClientCreationDto dto)
         {
             Client client = new Client() {
                 Login = dto.Login,
@@ -32,6 +32,7 @@ namespace Keeper.WebService.Services
                 Email = dto.Email,
                 Role = dto.Role};
             await _db.Clients.AddAsync(client);
+            return client.Id;
         }
 
         public async Task Edit(Guid id,ClientCreationDto dto)

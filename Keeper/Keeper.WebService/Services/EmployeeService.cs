@@ -24,7 +24,7 @@ namespace Keeper.WebService.Services
             return await _db.Employees.ToListAsync();
         }
 
-        public async Task Add(EmployeeCreationDto dto) 
+        public async Task<Guid> Add(EmployeeCreationDto dto) 
         {
             Employee employee = new Employee()
             {
@@ -35,6 +35,7 @@ namespace Keeper.WebService.Services
             _db.Employees.Add(employee);
 
             await _db.SaveChangesAsync();
+            return employee.Id;
         }
         
         public async Task Remove(Guid id)
