@@ -1,10 +1,12 @@
 ﻿
 using FluentValidation;
-using Keeper.Api.Dto;
+using Keeper.Library.Dto;
 using Keeper.Library.Models;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Threading.Tasks;
 
-namespace Keeper.Api.Services
+namespace Keeper.Library.Services
 {
     public class VisitorService : IVisitorService
     {

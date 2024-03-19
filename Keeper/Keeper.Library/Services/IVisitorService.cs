@@ -1,9 +1,11 @@
 ﻿using Keeper.Library.Models;
-using Keeper.Api.Dto;
-using Keeper.Api;
+using Keeper.Library.Dto;
+using Keeper.Library;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 
-namespace Keeper.Api.Services
+namespace Keeper.Library.Services
 
 {
     public interface IVisitorService

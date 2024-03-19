@@ -1,11 +1,14 @@
-﻿using Keeper.Api;
+﻿
 using System.Runtime.CompilerServices;
 using Keeper.Library.Models;
-using Keeper.Api.Dto;
-using Keeper.Api.Services;
-using Microsoft.EntityFrameworkCore;
+using Keeper.Library.Dto;
+using Keeper.Library.Services;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using System.Data.Entity;
 
-namespace Keeper.Api.Services
+namespace Keeper.Library.Services
 {
     public class ClientService: IClientService
     {

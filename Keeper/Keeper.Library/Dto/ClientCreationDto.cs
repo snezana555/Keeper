@@ -1,4 +1,4 @@
-﻿namespace Keeper.Api.Dto
+﻿namespace Keeper.Library.Dto
 {
     public class ClientCreationDto
     {

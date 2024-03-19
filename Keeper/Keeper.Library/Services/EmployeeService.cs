@@ -1,9 +1,11 @@
 ﻿
 using Keeper.Library.Models;
-using Microsoft.EntityFrameworkCore;
-using Keeper.Api.Dto;
+using Keeper.Library.Dto;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Data.Entity;
 
-namespace Keeper.Api.Services
+namespace Keeper.Library.Services
 {
     public class EmployeeService : IEmployeeService
     {

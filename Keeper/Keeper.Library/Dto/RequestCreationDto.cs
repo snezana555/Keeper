@@ -1,6 +1,8 @@
 ﻿
 using Keeper.Library.Models;
-namespace Keeper.Api.Dto
+using System;
+using System.Collections.Generic;
+namespace Keeper.Library.Dto
 {
     public class RequestCreationDto
     {
@@ -10,7 +12,7 @@ namespace Keeper.Api.Dto
         public string AdditionalFiles { get; set; }
         public int EmployeeId { get; set; }
         public List<int> VisitorsIds { get; set; } = new List<int>();
-        public string? StatusDescription { get; set; }
+        public string StatusDescription { get; set; }
         public string Status { get; set; }
 
 

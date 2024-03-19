@@ -1,12 +1,16 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿
 using FluentValidation;
-using Keeper.Api;
-using Keeper.Api.Dto;
+using Keeper.Library;
+using Keeper.Library.Dto;
 using Keeper.Library.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
 
-namespace Keeper.Api.Services
+using System;
+using System.Collections.Generic;
+
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Keeper.Library.Services
 {
     public class RequestService : IRequestService
     {
@@ -85,7 +89,7 @@ namespace Keeper.Api.Services
               return requests;
         }
 
-        public async Task<Request?> GetItem(int id)
+        public async Task<Request> GetItem(int id)
         {
             return _db.Requests.Find(id);
         }

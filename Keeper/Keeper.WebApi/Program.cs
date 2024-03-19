@@ -1,10 +1,11 @@
-using Keeper.Api.Dto;
-using Keeper.Api.Services;
-using Keeper.Api.Validators;
+using Keeper.Library.Dto;
+using Keeper.Library.Services;
+using Keeper.Library.Validators;
 using Keeper.Library;
 using Keeper.WebApi;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using FluentValidation;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

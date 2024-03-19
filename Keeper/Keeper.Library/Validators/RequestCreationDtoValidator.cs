@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using Keeper.Api.Dto;
+using Keeper.Library.Dto;
 
-namespace Keeper.Api.Validators
+namespace Keeper.Library.Validators
 {
     public class RequestCreationDtoValidator:  AbstractValidator<RequestCreationDto>
     {

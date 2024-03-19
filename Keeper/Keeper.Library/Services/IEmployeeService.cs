@@ -1,7 +1,9 @@
-﻿using Keeper.Api.Dto;
+﻿using Keeper.Library.Dto;
 using Keeper.Library.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace Keeper.Api.Services
+namespace Keeper.Library.Services
 {
     public interface IEmployeeService
     {
