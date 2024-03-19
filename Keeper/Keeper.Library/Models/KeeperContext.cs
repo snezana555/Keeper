@@ -8,7 +8,7 @@ namespace Keeper.Library.Models
     public partial class KeeperContext : DbContext
     {
         public KeeperContext()
-            : base("name=KeeperModel")
+            : base("name=bdKeeperConnectionString")
         {
         }
 

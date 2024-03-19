@@ -6,8 +6,9 @@ using Keeper.Library.Validators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Configuration;
-using Keeper.Library;
-using Keeper.Library.Models;
+using System.Globalization;
+using Keeper.Api.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,9 @@ builder.Services.AddScoped<IRequestService, RequestService>();
 builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
+IServiceCollection serviceCollection = builder.Services.AddDbContext<BdKeeperContext>(options =>
+   options.UseSqlServer(builder.Configuration.GetConnectionString("dbKeeperConnectionString"))
+);
 var app = builder.Build();
 
 
