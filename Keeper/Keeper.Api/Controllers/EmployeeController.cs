@@ -1,5 +1,5 @@
-﻿using Keeper.Api.Dto;
-using Keeper.Api.Services;
+﻿using Keeper.Library.Dto;
+using Keeper.Library.Services;
 using Keeper.Library.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -45,7 +45,7 @@ namespace Keeper.Api.Controllers
 
         // PUT: api/Employee/{id}
         [HttpPut]
-        public async Task<IActionResult> PutEmployee(ште id, EmployeeCreationDto dto)
+        public async Task<IActionResult> PutEmployee(int id, EmployeeCreationDto dto)
         {
 
             await _employeeService.Edit(id, dto);

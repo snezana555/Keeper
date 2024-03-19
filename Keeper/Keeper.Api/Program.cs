@@ -1,9 +1,8 @@
 using FluentValidation;
 using Keeper.Api;
-using Keeper.Api.Dto;
-using Keeper.Api;
-using Keeper.Api.Services;
-using Keeper.Api.Validators;
+using Keeper.Library.Dto;
+using Keeper.Library.Services;
+using Keeper.Library.Validators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Configuration;

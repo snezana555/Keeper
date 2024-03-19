@@ -1,4 +1,4 @@
-﻿﻿@inject IVisitorService VisitorService
+﻿
 
 
 <form method="POST">
@@ -37,12 +37,11 @@
     </div>
     <div class="form-visitor__elem">
         <p>Серия:</p>
-        <input DisplayName="Series" @bind="@CreationDto.PassportData.Series" type="number"/>
-        @*To do: PassportData*@
+        <input DisplayName="Series" @bind="@CreationDto.Series" type="number"/>
     </div>
     <div class="form-visitor__elem">
         <p>Номер:</p>
-        <input DisplayName="Number" @bind="@CreationDto.PassportData.Number" type="number"/>
+        <input DisplayName="Number" @bind="@CreationDto.Number" type="number"/>
     </div>
 
     <button class="btn btn-primary" type="submit">
@@ -80,7 +79,7 @@
 
     private void OnPost()
     {
-        VisitorService.Add(CreationDto);
+        //VisitorService.Add(CreationDto);
         //To do: отправка идентификаторов пользователей //
     }
 
