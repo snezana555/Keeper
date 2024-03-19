@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
-using Keeper.Data;
-using Keeper.WebService.Dto;
-using Keeper.WebService.Services;
-using Keeper.WebService.Validators;
+using Keeper.Api;
+using Keeper.Api.Dto;
+using Keeper.Api.Services;
+using Keeper.Api.Validators;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
-using KeeperLibrary.Models;
+using Keeper.Library.Models;
 namespace Keeper.Test
 {
 
@@ -22,7 +22,6 @@ namespace Keeper.Test
         public RequestServiceTest()
         {
             var sc = new ServiceCollection();
-            sc.AddDbContext<KeeperDbContext>();
             sc.AddScoped<IValidator<VisitorCreationDto>, VisitorValidator>();
             sc.AddScoped<IValidator<RequestCreationDto>, RequestCreationDtoValidator>();
             sc.AddScoped<RequestService>();

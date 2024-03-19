@@ -1,0 +1,40 @@
+﻿
+﻿@page "/registration"
+@inject IClientService ClientService
+@inject NavigationManager NavigationManager
+<h3>Регистрация</h3>
+
+<form method="POST">
+    <p>Логин:</p>
+    <input type="text" @bind="@dto.Login" DisplayName="Login"/>
+    <p>Почта:</p>
+    <input type="email" @bind="@dto.Email" DisplayName="Email"/>
+    <p>Пароль:</p>
+    <input type="password" @bind="@dto.Password" DisplayName="Password"/>
+    <p>@error</p>
+    <input type="submit" value="Зарегистрироваться"/>
+</form>
+
+
+@code {
+    public ClientCreationDto dto { get; set; } = new ClientCreationDto();
+    public string error { get; set; } = "";
+
+    public void OnPost(){
+        bool result = ClientService.FindByLogin(dto.Login);
+        if(result)
+        {
+            error = "Этот логин уже используется";
+            return;
+        }
+        result = ClientService.FindByEmail(dto.Email);
+        if(result)
+        {
+            error = "Эта почта уже используется";
+            return;
+        }
+        dto.Role = "client";
+        ClientService.Add(dto);
+        NavigationManager.NavigateTo("/authorization");
+    }
+}

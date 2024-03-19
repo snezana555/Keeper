@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Keeper.WebService\Keeper.WebService.csproj" />
+    <ProjectReference Include="..\Keeper.Api\Keeper.Api.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
-﻿using Keeper.WebService.Dto;
-using Keeper.WebService.Services;
-using KeeperLibrary.Models;
+﻿using Keeper.Api.Dto;
+using Keeper.Api.Services;
+using Keeper.Library.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +25,7 @@ namespace Keeper.Api.Controllers
 
         // GET: api/Client/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Client>> GetClient(Guid id)
+        public async Task<ActionResult<Client>> GetClient(int id)
         {
             var client = await _clientService.GetClientById(id);
             if (client == null)
@@ -39,13 +39,13 @@ namespace Keeper.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Client>> PostClient(ClientCreationDto dto)
         {
-            Guid id = await _clientService.Add(dto);
+            int id = await _clientService.Add(dto);
             return CreatedAtAction("GetClient", new { id = id }, dto);
         }
 
         // PUT: api/Client/{id}
         [HttpPut]
-        public async Task<IActionResult> PutClient(Guid id, ClientCreationDto dto)
+        public async Task<IActionResult> PutClient(int id, ClientCreationDto dto)
         {
 
             await _clientService.Edit(id, dto);
@@ -54,7 +54,7 @@ namespace Keeper.Api.Controllers
 
         // DELETE: api/Client/{id}
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteClient(Guid id)
+        public async Task<IActionResult> DeleteClient(int id)
         {
             Client client = await _clientService.GetClientById(id);
             if (client == null)

@@ -9,6 +9,6 @@ namespace KeeperLibrary.Models
         public Guid Id { get; set; }
         public int Number { get;set; }
         public int Series { get; set; }
-        public Visitor Visitor { get; set; }
+        public Guid VisitorId { get; set; }
     }
 }

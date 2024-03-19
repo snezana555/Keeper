@@ -1,8 +1,8 @@
-﻿using Keeper.WebService.Services;
+﻿using Keeper.Api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using KeeperLibrary.Models;
-using Keeper.WebService.Dto;
+using Keeper.Library.Models;
+using Keeper.Api.Dto;
 
 namespace Keeper.Api.Controllers
 {
@@ -25,7 +25,7 @@ namespace Keeper.Api.Controllers
 
         // GET: api/Visitor/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Visitor>> GetVisitor(Guid id)
+        public async Task<ActionResult<Visitor>> GetVisitor(int id)
         {
             var visitor = await _visitorService.GetVisitorById(id);
             if(visitor == null)
@@ -39,13 +39,13 @@ namespace Keeper.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Visitor>> PostVisitor(VisitorCreationDto dto)
         {
-            Guid id = await _visitorService.Add(dto);
+            int id = await _visitorService.Add(dto);
             return CreatedAtAction("GetVisitor", new {id = id}, dto);
         }
 
         // PUT: api/Visitor/{id}
         [HttpPut]
-        public async Task<IActionResult> PutVisitor(Guid id, VisitorCreationDto dto)
+        public async Task<IActionResult> PutVisitor(int id, VisitorCreationDto dto)
         {
 
             await _visitorService.Edit(id, dto);
@@ -54,7 +54,7 @@ namespace Keeper.Api.Controllers
 
         // DELETE: api/Visitor/{id}
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVisitor(Guid id)
+        public async Task<IActionResult> DeleteVisitor(int id)
         {
             Visitor visitor = await _visitorService.GetVisitorById(id);
             if(visitor == null)

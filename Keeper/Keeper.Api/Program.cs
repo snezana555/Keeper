@@ -1,19 +1,20 @@
 using FluentValidation;
-using Keeper.Data;
-using Keeper.WebService.Dto;
-using Keeper.WebService;
-using Keeper.WebService.Services;
-using Keeper.WebService.Validators;
+using Keeper.Api;
+using Keeper.Api.Dto;
+using Keeper.Api;
+using Keeper.Api.Services;
+using Keeper.Api.Validators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Configuration;
+using Keeper.Library;
+using Keeper.Library.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 
-builder.Services.AddDbContext<KeeperDbContext>(options => options.UseSqlServer("DefaultConnection"));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -21,6 +22,8 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Keeper.Api", Version = "v1" });///////////
 });
+builder.Services.AddScoped<IValidator<VisitorCreationDto>, VisitorValidator>();
+builder.Services.AddScoped<IValidator<RequestCreationDto>, RequestCreationDtoValidator>();
 builder.Services.AddScoped<IVisitorService, VisitorService>();
 builder.Services.AddScoped<IRequestService, RequestService>();
 builder.Services.AddScoped<IClientService, ClientService>();

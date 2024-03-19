@@ -1,0 +1,23 @@
+﻿﻿@page "/request"
+@inject IRequestService RequestService
+
+<PageTitle>Создание заявки</PageTitle>
+<form>
+    <ComponentFormVisitor></ComponentFormVisitor>
+</form>
+
+
+
+
+@code {
+
+    public RequestCreationDto? CreationDto { get; set; } = new RequestCreationDto();
+
+
+    private void OnPost()
+    {
+        RequestService.Add(CreationDto);
+        //To do: отправка идентификаторов пользователей //
+    }
+    
+}

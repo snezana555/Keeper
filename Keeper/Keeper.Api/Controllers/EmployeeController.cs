@@ -1,6 +1,6 @@
-﻿using Keeper.WebService.Dto;
-using Keeper.WebService.Services;
-using KeeperLibrary.Models;
+﻿using Keeper.Api.Dto;
+using Keeper.Api.Services;
+using Keeper.Library.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +25,7 @@ namespace Keeper.Api.Controllers
 
         // GET: api/Employee/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Employee>> GetEmployee(Guid id)
+        public async Task<ActionResult<Employee>> GetEmployee(int id)
         {
             var employee = await _employeeService.GetEmployee(id);
             if (employee == null)
@@ -39,13 +39,13 @@ namespace Keeper.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Employee>> PostEmployee(EmployeeCreationDto dto)
         {
-            Guid id = await _employeeService.Add(dto);
+            int id = await _employeeService.Add(dto);
             return CreatedAtAction("GetEmployee", new { id = id }, dto);
         }
 
         // PUT: api/Employee/{id}
         [HttpPut]
-        public async Task<IActionResult> PutEmployee(Guid id, EmployeeCreationDto dto)
+        public async Task<IActionResult> PutEmployee(ште id, EmployeeCreationDto dto)
         {
 
             await _employeeService.Edit(id, dto);
@@ -54,7 +54,7 @@ namespace Keeper.Api.Controllers
 
         // DELETE: api/Employee/{id}
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee(Guid id)
+        public async Task<IActionResult> DeleteEmployee(int id)
         {
             Employee employee = await _employeeService.GetEmployee(id);
             if (employee == null)

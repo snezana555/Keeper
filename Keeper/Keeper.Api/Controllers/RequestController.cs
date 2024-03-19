@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Keeper.WebService.Services;
-using KeeperLibrary.Models;
+using Keeper.Api.Services;
+using Keeper.Library.Models;
 
 namespace Keeper.Api.Controllers
 {
